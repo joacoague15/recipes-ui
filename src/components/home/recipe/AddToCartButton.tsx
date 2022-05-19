@@ -1,5 +1,8 @@
+import {Link} from "react-router-dom";
+
 const AddToCartButton = () => {
-    return <button>Add to cart</button>
+
+    return <Link to="/cart"><button>Add to cart</button></Link>
 }
 
 export default AddToCartButton;
