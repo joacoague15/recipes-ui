@@ -13,7 +13,7 @@ function App() {
             <Route path='/' element={<RecipeSearcher />} />
             <Route path='/pricing/:id' element={<PriceBreakdown />} />
             <Route path='/ingredients/:id' element={<AllRecipeIngredients />} />
-            <Route path='/cart' element={<AllCartDisplayed />} />
+            <Route path='/cart' element={<AllCartDisplayed cartIngredients={['Banana', 'Onions']} />} />
         </Routes>
     </div>
   );

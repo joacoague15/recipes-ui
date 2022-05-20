@@ -37,9 +37,17 @@ export interface Iingredient {
     amount?: number;
     consitency?: string;
     aisle?: string;
+    totalCost?: number;
 }
 
 export interface Iredirection {
     redirectTo: string;
     text: string;
+}
+
+export interface IingredientPriceBreakdown {
+    ingredients: [];
+    name: string;
+    price: number;
+    totalCost: number;
 }
