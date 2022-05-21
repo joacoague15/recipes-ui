@@ -1,20 +1,16 @@
-import  { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-import { Iredirection } from "../types/HomeTypes";
+import { Iredirection } from "../types";
 
 const RedirectionButton = (props: Iredirection) => {
     const { redirectTo, text } = props;
+    let navigate = useNavigate();
 
-    return <Link to={redirectTo}><button>{text}</button></Link>
+    const redirect = () => {
+        navigate(redirectTo);
+    }
+
+    return <button onClick={redirect}>{text}</button>
 }
 
 export default RedirectionButton;
-
-
-// import { Link } from 'react-router-dom';
-//
-// const PricingButton = () => {
-//     return <Link to="/pricing"><button>See price</button></Link>
-// }
-//
-// export default PricingButton;

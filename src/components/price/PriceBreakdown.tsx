@@ -2,7 +2,7 @@ import Ingredient from "../Ingredient";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { IingredientPriceBreakdown } from "../../types/HomeTypes";
+import { IingredientPriceBreakdown } from "../../types";
 
 const PriceBreakdown = () => {
     const { id } = useParams();

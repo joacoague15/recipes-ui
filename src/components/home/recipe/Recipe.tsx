@@ -1,6 +1,6 @@
 import Information from "./Information";
 import AddToCartButton from "./AddToCartButton";
-import { IRecipe } from "../../../types/HomeTypes";
+import { IRecipe } from "../../../types";
 import RedirectionButton from "../../RedirectionButton";
 
 const Recipe = (props: IRecipe) => {
@@ -11,7 +11,7 @@ const Recipe = (props: IRecipe) => {
             <Information title={title} carbs={carbs} fat={fat} protein={protein} calories={calories} image={image} />
             <RedirectionButton redirectTo={`/pricing/${id}`} text='See price' />
             <RedirectionButton redirectTo={`/ingredients/${id}`} text='See ingredients' />
-            <AddToCartButton />
+            <AddToCartButton id={id} />
         </div>
     )
 }

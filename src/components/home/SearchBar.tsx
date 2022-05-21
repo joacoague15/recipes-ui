@@ -1,4 +1,4 @@
-import { ISearchBarProps } from "../../types/HomeTypes";
+import { ISearchBarProps } from "../../types";
 
 const SearchBar = (props: ISearchBarProps) => {
     const { label, setNutrients } = props;

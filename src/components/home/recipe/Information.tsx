@@ -1,4 +1,4 @@
-import { Iinformation } from "../../../types/HomeTypes";
+import { Iinformation } from "../../../types";
 
 const Information = (props: Iinformation) => {
     const {title, image, carbs, fat, protein, calories} = props;

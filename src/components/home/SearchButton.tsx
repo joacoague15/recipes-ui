@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { ISearchButton } from "../../types/HomeTypes";
+import { ISearchButton } from "../../types";
 import {useEffect, useState} from "react";
 
 const SearchButton = (props: ISearchButton) => {

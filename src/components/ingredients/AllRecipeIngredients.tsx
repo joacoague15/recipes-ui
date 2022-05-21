@@ -1,5 +1,5 @@
 import Ingredient from "../Ingredient";
-import { Iingredient } from "../../types/HomeTypes";
+import { Iingredient } from "../../types";
 
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";

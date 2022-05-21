@@ -1,4 +1,4 @@
-import { Iingredient } from "../types/HomeTypes";
+import { Iingredient } from "../types";
 
 const Ingredient = (props: Iingredient) => {
     if (props.price) {

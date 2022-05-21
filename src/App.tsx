@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import RecipeSearcher from "./components/home/RecipeSearcher";
@@ -6,15 +6,28 @@ import PriceBreakdown from "./components/price/PriceBreakdown";
 import AllRecipeIngredients from "./components/ingredients/AllRecipeIngredients";
 import AllCartDisplayed from "./components/cart/AllCartDisplayed";
 
+import { CartIngredientsContext } from "./CartIngredientsContext";
+import RedirectionButton from "./components/RedirectionButton";
+
 function App() {
-  return (
+    const [cartIngredients, setCartIngredients] = useState([]);
+
+    useEffect(() => {
+        console.log(cartIngredients);
+    }, [cartIngredients]);
+
+    return (
     <div className="App">
-        <Routes>
+        <CartIngredientsContext.Provider value={{ cartIngredients, setCartIngredients }}>
+            <RedirectionButton redirectTo='/' text='Home' />
+            <RedirectionButton redirectTo='/cart' text='Cart' />
+            <Routes>
             <Route path='/' element={<RecipeSearcher />} />
+            <Route path='/cart' element={<AllCartDisplayed />} />
             <Route path='/pricing/:id' element={<PriceBreakdown />} />
             <Route path='/ingredients/:id' element={<AllRecipeIngredients />} />
-            <Route path='/cart' element={<AllCartDisplayed cartIngredients={['Banana', 'Onions']} />} />
         </Routes>
+        </CartIngredientsContext.Provider>
     </div>
   );
 }

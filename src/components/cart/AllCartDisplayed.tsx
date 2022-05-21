@@ -1,11 +1,17 @@
-const AllCartDisplayed = (props: any) => {
-    return(
+import { CartIngredientsContext } from "../../CartIngredientsContext";
+
+import { useContext } from "react";
+
+const AllCartDisplayed = () => {
+    const { cartIngredients } = useContext(CartIngredientsContext);
+
+    return (
         <div>
-            {props.cartIngredients.map((ingredient: any, i: number) =>
-                <h2 key={i}>{ingredient}</h2>
+            {cartIngredients.map((ingredient: any, i: number) =>
+                <h2 key={i}>{ingredient.name}</h2>
             )}
         </div>
-        )
+    )
 }
 
 export default AllCartDisplayed;
