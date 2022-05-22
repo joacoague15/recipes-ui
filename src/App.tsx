@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import RecipeSearcher from "./components/home/RecipeSearcher";
 import PriceBreakdown from "./components/price/PriceBreakdown";
 import AllRecipeIngredients from "./components/ingredients/AllRecipeIngredients";
 import AllCartDisplayed from "./components/cart/AllCartDisplayed";
-
 import { CartIngredientsContext } from "./CartIngredientsContext";
 import RedirectionButton from "./components/RedirectionButton";
 
 function App() {
     const [cartIngredients, setCartIngredients] = useState([]);
-
-    useEffect(() => {
-        console.log(cartIngredients);
-    }, [cartIngredients]);
 
     return (
     <div className="App">

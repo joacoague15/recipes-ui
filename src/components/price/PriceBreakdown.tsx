@@ -1,7 +1,8 @@
-import Ingredient from "../Ingredient";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+
+import Ingredient from "../Ingredient";
 import { IingredientPriceBreakdown } from "../../types";
 
 const PriceBreakdown = () => {
@@ -14,7 +15,8 @@ const PriceBreakdown = () => {
         axios.get(GET_PRICE_BREAKDOWN_URL)
             .then(response => {
                 setIngredientsBreakdown(response.data);
-            });
+            })
+            .catch(err => console.log(err));
     }, [GET_PRICE_BREAKDOWN_URL])
 
         return (

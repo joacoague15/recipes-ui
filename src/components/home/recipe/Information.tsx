@@ -1,7 +1,7 @@
 import { Iinformation } from "../../../types";
 
 const Information = (props: Iinformation) => {
-    const {title, image, carbs, fat, protein, calories} = props;
+    const { title, image, carbs, fat, protein, calories } = props;
 
     return (
         <>

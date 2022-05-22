@@ -1,9 +1,15 @@
-import { CartIngredientsContext } from "../../CartIngredientsContext";
+import {useContext, useEffect} from "react";
 
-import { useContext } from "react";
+import {CartIngredientsContext} from "../../CartIngredientsContext";
 
 const AllCartDisplayed = () => {
-    const { cartIngredients } = useContext(CartIngredientsContext);
+    const { cartIngredients, setCartIngredients } = useContext(CartIngredientsContext);
+
+    useEffect(() => {
+        const storedRecipeData:any= window.localStorage.getItem('cart')
+        setCartIngredients(JSON.parse(storedRecipeData))
+        // eslint-disable-next-line
+    }, [])
 
     return (
         <div>

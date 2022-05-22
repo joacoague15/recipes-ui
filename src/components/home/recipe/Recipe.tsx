@@ -1,7 +1,7 @@
 import Information from "./Information";
 import AddToCartButton from "./AddToCartButton";
-import { IRecipe } from "../../../types";
 import RedirectionButton from "../../RedirectionButton";
+import { IRecipe } from "../../../types";
 
 const Recipe = (props: IRecipe) => {
     const { id, title, carbs, fat, protein, calories, image } = props;

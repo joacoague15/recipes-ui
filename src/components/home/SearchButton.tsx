@@ -1,47 +1,47 @@
 import axios from 'axios';
 
 import { ISearchButton } from "../../types";
-import {useEffect, useState} from "react";
 
 const SearchButton = (props: ISearchButton) => {
     const { setFetchedRecipes, carbs, fat, protein } = props;
 
-    let params = {};
-
     const SEARCH_BY_NUTRIENTS_URL = 'https://api.spoonacular.com/recipes/findByNutrients?apiKey=b481e94a42d048aea4fd333d678b0f76';
 
-    const setCarbsParam = (nutrientAmount: number) => {
-        if (nutrientAmount > 0)
-            params = {...params, maxCarbs: nutrientAmount  }
+    const noValidInput = !carbs && !fat && !protein;
+
+    let params = {};
+
+    const setCarbsParam = () => {
+        if (carbs > 0)
+            params = {...params, maxCarbs: carbs  }
     }
 
-    const setFatParams = (nutrientAmount: number) => {
-        if (nutrientAmount > 0)
-            params = {...params, maxFat: nutrientAmount  }
+    const setFatParams = () => {
+        if (fat > 0)
+            params = {...params, maxFat: fat  }
     }
 
-    const setProteinParams = (nutrientAmount: number) => {
-        if (nutrientAmount > 0)
-            params = {...params, maxProtein: nutrientAmount  }
+    const setProteinParams = () => {
+        if (protein > 0)
+            params = {...params, maxProtein: protein  }
     }
 
     const fetchRecipes = () => {
-
-        setCarbsParam(carbs);
-        setFatParams(fat);
-        setProteinParams(protein);
+        setCarbsParam();
+        setFatParams();
+        setProteinParams();
 
         axios.get(SEARCH_BY_NUTRIENTS_URL, {
             params
         })
             .then(response => {
-                console.log(response.data);
                 setFetchedRecipes(response.data);
-            });
+            })
+            .catch(err => console.log(err));
     }
 
     return (
-        <button onClick={fetchRecipes}>Find recipes</button>
+        <button disabled={noValidInput} onClick={fetchRecipes}>Find recipes</button>
     )
 }
 

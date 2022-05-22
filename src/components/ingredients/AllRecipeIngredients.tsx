@@ -1,22 +1,23 @@
-import Ingredient from "../Ingredient";
-import { Iingredient } from "../../types";
-
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import Ingredient from "../Ingredient";
+import { Iingredient } from "../../types";
 
 const AllRecipeIngredients = () => {
+    const [ingredientsData, setIngredientsData] = useState([]);
+
     const { id } = useParams();
     const GET_RECIPE_INGREDIENTS_URL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=b481e94a42d048aea4fd333d678b0f76&includeNutrition=false`;
-
-    const [ingredientsData, setIngredientsData] = useState([]);
 
     useEffect(() => {
             axios.get(GET_RECIPE_INGREDIENTS_URL)
                 .then(response => {
                     setIngredientsData(response.data.extendedIngredients);
-                });
+                })
+                .catch(err => console.log(err));
+        /* eslint-disable */
     }, [])
 
     return (

@@ -1,10 +1,9 @@
-import { useState } from "react";
-import {useNavigate} from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
-import { IRecipe } from "../../types";
 import Recipe from "./recipe/Recipe";
+import { IRecipe } from "../../types";
 
 const RecipeSearcher = () => {
     const [carbs, setCarbs] = useState(0);
@@ -13,19 +12,21 @@ const RecipeSearcher = () => {
 
     const [fetchedRecipes, setFetchedRecipes] = useState([]);
 
-    const navigate = useNavigate();
+    useEffect(() => {
+        const storedRecipeData:any= window.localStorage.getItem('recipes')
+        setFetchedRecipes(JSON.parse(storedRecipeData))
+    }, [])
 
-    const redirectToCart = () => {
-        navigate('/cart');
-    }
+    useEffect(() => {
+        window.localStorage.setItem('recipes', JSON.stringify(fetchedRecipes))
+    }, [fetchedRecipes])
 
     return (
         <div>
             <div>
                 <SearchBar label='Max carbs' nutrients={carbs} setNutrients={setCarbs} />
-                <SearchBar label='Max rotein' nutrients={protein} setNutrients={setProtein}  />
-                <SearchBar label='Max Fat' nutrients={fat} setNutrients={setFat} />
-                <button onClick={redirectToCart}>Go to Cart</button>
+                <SearchBar label='Max protein' nutrients={protein} setNutrients={setProtein}  />
+                <SearchBar label='Max fat' nutrients={fat} setNutrients={setFat} />
             </div>
             <div>
                 <SearchButton setFetchedRecipes={setFetchedRecipes} carbs={carbs} protein={protein} fat={fat} />

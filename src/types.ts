@@ -51,3 +51,7 @@ export interface IingredientPriceBreakdown {
     price: number;
     totalCost: number;
 }
+
+export interface IcartButton {
+    id: number;
+}
