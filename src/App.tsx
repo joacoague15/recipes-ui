@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/basicStyle.css';
 
@@ -20,9 +20,10 @@ function App() {
     }
 
     useEffect(() => {
-        setInterval(() => deleteLocalStorage(), ONE_HOUR);
+        let firstTime = true;
+        setInterval(() => { firstTime ? firstTime = false : deleteLocalStorage() }, ONE_HOUR);
         // eslint-disable-next-line
-    }, []);
+    }, [])
 
     return (
     <div className="App">
