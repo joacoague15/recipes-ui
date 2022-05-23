@@ -1,6 +1,5 @@
 <h1>React project using spoonacular API - https://spoonacular.com/food-api/docs</h1>
 <img src="https://play-lh.googleusercontent.com/uOZlIZUJ7R79qs_J_a9cdxrJaGhHwqKTmika25Lp1vTeC1qe9lPQF5jalEFc8Htk7nQ" alt="spoonacular-img" />
-### Getting Started with Create React App
 
 ## Available Scripts
 
