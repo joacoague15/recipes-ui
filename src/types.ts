@@ -6,6 +6,7 @@ export interface ISearchBarProps {
 
 export interface ISearchButton {
     setFetchedRecipes: Function;
+    setIsFetchingRecipes: Function;
     carbs: number;
     fat: number;
     protein: number;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import './styles/basicStyle.css';
 
 import RecipeSearcher from "./components/home/RecipeSearcher";
 import PriceBreakdown from "./components/price/PriceBreakdown";

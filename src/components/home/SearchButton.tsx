@@ -1,9 +1,11 @@
 import axios from 'axios';
+import { Button } from "@mui/material";
+import '../../styles/basicStyle.css';
 
 import { ISearchButton } from "../../types";
 
 const SearchButton = (props: ISearchButton) => {
-    const { setFetchedRecipes, carbs, fat, protein } = props;
+    const { setFetchedRecipes, setIsFetchingRecipes,  carbs, fat, protein } = props;
 
     const SEARCH_BY_NUTRIENTS_URL = 'https://api.spoonacular.com/recipes/findByNutrients?apiKey=b481e94a42d048aea4fd333d678b0f76';
 
@@ -35,14 +37,13 @@ const SearchButton = (props: ISearchButton) => {
             params
         })
             .then(response => {
+                setIsFetchingRecipes(true);
                 setFetchedRecipes(response.data);
             })
             .catch(err => console.log(err));
     }
 
-    return (
-        <button disabled={noValidInput} onClick={fetchRecipes}>Find recipes</button>
-    )
+    return <Button className='separateElements' disabled={noValidInput} onClick={fetchRecipes} variant="contained" color="success">Find recipes</Button>
 }
 
 export default SearchButton;

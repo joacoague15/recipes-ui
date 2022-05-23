@@ -4,6 +4,7 @@ import axios from "axios";
 
 import Ingredient from "../Ingredient";
 import { Iingredient } from "../../types";
+import {Typography} from "@mui/material";
 
 const AllRecipeIngredients = () => {
     const [ingredientsData, setIngredientsData] = useState([]);
@@ -22,6 +23,7 @@ const AllRecipeIngredients = () => {
 
     return (
         <div>
+            <Typography gutterBottom variant="h2" component="div">Ingredients</Typography>
             {ingredientsData.map((ingredient: Iingredient, i) =>
                     <Ingredient key={i} name={ingredient.name} amount={ingredient.amount} consitency={ingredient.consitency} aisle={ingredient.aisle} />
             )}

@@ -11,6 +11,7 @@ const RecipeSearcher = () => {
     const [fat, setFat] = useState(0);
 
     const [fetchedRecipes, setFetchedRecipes] = useState([]);
+    const [isFetchingRecipes, setIsFetchingRecipes] = useState(false);
 
     useEffect(() => {
         const storedRecipeData:any= window.localStorage.getItem('recipes')
@@ -18,22 +19,25 @@ const RecipeSearcher = () => {
     }, [])
 
     useEffect(() => {
-        window.localStorage.setItem('recipes', JSON.stringify(fetchedRecipes))
-    }, [fetchedRecipes])
+        if (isFetchingRecipes) {
+            window.localStorage.setItem('recipes', JSON.stringify(fetchedRecipes))
+            setIsFetchingRecipes(false);
+        }
+    }, [fetchedRecipes, isFetchingRecipes, setIsFetchingRecipes])
 
     return (
         <div>
-            <div>
+            <div className='center'>
                 <SearchBar label='Max carbs' nutrients={carbs} setNutrients={setCarbs} />
                 <SearchBar label='Max protein' nutrients={protein} setNutrients={setProtein}  />
                 <SearchBar label='Max fat' nutrients={fat} setNutrients={setFat} />
             </div>
-            <div>
-                <SearchButton setFetchedRecipes={setFetchedRecipes} carbs={carbs} protein={protein} fat={fat} />
+            <div className='center'>
+                <SearchButton setFetchedRecipes={setFetchedRecipes} setIsFetchingRecipes={setIsFetchingRecipes} carbs={carbs} protein={protein} fat={fat} />
             </div>
             <div>
                 {fetchedRecipes.map((recipe: IRecipe) =>
-                    <div key={recipe.id}>
+                    <div className='center' key={recipe.id}>
                         <Recipe id={recipe.id} title={recipe.title} carbs={recipe.carbs} fat={recipe.fat} protein={recipe.fat} calories={recipe.calories} image={recipe.image}  />
                     </div>
                 )}

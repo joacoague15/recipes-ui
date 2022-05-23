@@ -1,14 +1,12 @@
+import { TextField } from "@mui/material";
+import '../../styles/basicStyle.css';
+
 import { ISearchBarProps } from "../../types";
 
 const SearchBar = (props: ISearchBarProps) => {
     const { label, setNutrients } = props;
 
-    return (
-        <label>
-            {label}
-            <input onChange={e => setNutrients(e.target.value)} type="text" name="name" />
-        </label>
-    )
+    return <TextField onChange={e => setNutrients(e.target.value)} id="nutrient-input" label={label} variant="standard" />
 
 }
 

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 import { Iredirection } from "../types";
 
@@ -10,7 +11,7 @@ const RedirectionButton = (props: Iredirection) => {
         navigate(redirectTo);
     }
 
-    return <button onClick={redirect}>{text}</button>
+    return <Button onClick={redirect} variant="contained">{text}</Button>
 }
 
 export default RedirectionButton;

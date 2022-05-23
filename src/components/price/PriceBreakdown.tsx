@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 import Ingredient from "../Ingredient";
 import { IingredientPriceBreakdown } from "../../types";
+import {Typography} from "@mui/material";
 
 const PriceBreakdown = () => {
     const { id } = useParams();
@@ -21,12 +22,11 @@ const PriceBreakdown = () => {
 
         return (
             <div>
+                <Typography gutterBottom variant="h2" component="div">Price breakdown</Typography>
                 {ingredientsBreakdown.ingredients.map((ingredient: IingredientPriceBreakdown, i: number) =>
-                    <div key={i}>
-                        <Ingredient name={ingredient.name} price={ingredient.price} />
-                    </div>
+                        <Ingredient key={i} name={ingredient.name} price={ingredient.price} />
                 )}
-                <h2>{ingredientsBreakdown.totalCost}</h2>
+                <Typography gutterBottom variant="h5" component="div">Total cost: {ingredientsBreakdown.totalCost}</Typography>
             </div>
         )
 }
