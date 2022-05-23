@@ -26,6 +26,7 @@ Material-UI - ^5.8.0
 
 ## What can I add in the future?
 <ul>
+  <li>It is not a good practice to have API key exposed on client side. Adding some back-end to the project would solve that security problem</li>
   <li>Add test scenarios</li>
   <li>Add loading component for fetched data</li>
   <li>Improve design and responsivness</li>
