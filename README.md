@@ -25,6 +25,8 @@ Axios - ^0.27.2 /
 Material-UI - ^5.8.0
 
 ## What can I add in the future?
-Add test scenarios
-Add loading component for fetched data
-Improve design and responsivness
+<ul>
+  <li>Add test scenarios</li>
+  <li>Add loading component for fetched data</li>
+  <li>Improve design and responsivness</li>
+</ul>
