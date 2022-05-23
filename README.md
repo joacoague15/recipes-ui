@@ -21,7 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 </ul>
 
 ## Which non-react libraries does It use?
-Axios - ^0.27.2
+Axios - ^0.27.2 / 
 Material-UI - ^5.8.0
 
 ## What can I add in the future?
