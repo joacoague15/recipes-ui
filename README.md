@@ -5,16 +5,20 @@
 
 In the project directory, you can run:
 
+### `npm intall`
+
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## What this app does?
-Allow the user to search for the best recipe based on the max carbs, protein and fat.
-Allow the user to select a recipe and then display the price breakdown of a recipe
-Allow the user to select a recipe and view the ingredients information of the recipe.
-It generates a shopping list for all saved recipes. The shopping list removes duplicated ingredients.
+<ul>
+  <li>Allow the user to search for the best recipe based on the max carbs, protein and fat</li>
+  <li>Allow the user to select a recipe and then display the price breakdown of a recipe</li>
+  <li>Allow the user to select a recipe and view the ingredients information of the recipe</li>
+  <li>It generates a shopping list for all saved recipes. The shopping list removes duplicated ingredients</li>
+</ul>
 
 ## Which non-react libraries does It use?
 Axios - ^0.27.2
