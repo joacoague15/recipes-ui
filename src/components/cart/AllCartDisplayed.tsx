@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import {Card, Typography} from '@mui/material';
+import { Card, Typography } from '@mui/material';
 
 import { CartIngredientsContext } from "../../CartIngredientsContext";
 

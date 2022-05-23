@@ -14,7 +14,7 @@ const RecipeSearcher = () => {
     const [isFetchingRecipes, setIsFetchingRecipes] = useState(false);
 
     useEffect(() => {
-        const storedRecipeData:any= window.localStorage.getItem('recipes')
+        const storedRecipeData:any = window.localStorage.getItem('recipes')
         setFetchedRecipes(JSON.parse(storedRecipeData))
     }, [])
 
