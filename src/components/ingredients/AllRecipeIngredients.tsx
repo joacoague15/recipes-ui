@@ -11,7 +11,7 @@ const AllRecipeIngredients = () => {
 
     const { id } = useParams();
     const GET_RECIPE_INGREDIENTS_URL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=b481e94a42d048aea4fd333d678b0f76&includeNutrition=false`;
-
+    
     useEffect(() => {
             axios.get(GET_RECIPE_INGREDIENTS_URL)
                 .then(response => {

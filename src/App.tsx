@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/basicStyle.css';
 
@@ -11,6 +11,18 @@ import RedirectionButton from "./components/RedirectionButton";
 
 function App() {
     const [cartIngredients, setCartIngredients] = useState([]);
+
+    const ONE_HOUR = 1000 * 60 * 60;
+
+    const deleteLocalStorage = () => {
+        window.localStorage.setItem('recipes', '[]');
+        window.localStorage.setItem('cart', '[]');
+    }
+
+    useEffect(() => {
+        setInterval(() => deleteLocalStorage(), ONE_HOUR);
+        // eslint-disable-next-line
+    }, []);
 
     return (
     <div className="App">
