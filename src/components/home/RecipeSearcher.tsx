@@ -36,7 +36,7 @@ const RecipeSearcher = () => {
                 <SearchButton setFetchedRecipes={setFetchedRecipes} setIsFetchingRecipes={setIsFetchingRecipes} carbs={carbs} protein={protein} fat={fat} />
             </div>
             <div>
-                {fetchedRecipes.map((recipe: IRecipe) =>
+                {fetchedRecipes && fetchedRecipes.map((recipe: IRecipe) =>
                     <div className='center' key={recipe.id}>
                         <Recipe id={recipe.id} title={recipe.title} carbs={recipe.carbs} fat={recipe.fat} protein={recipe.fat} calories={recipe.calories} image={recipe.image}  />
                     </div>
